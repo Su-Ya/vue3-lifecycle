@@ -1,6 +1,7 @@
 # Vue 3 Lifecycle Demo
 
 Observe the Vue 3 lifecycle hooks of the **Composition API** and **Options API** with a custom **Console Viewer**.
+Online Demo: https://su-ya.github.io/vue3-lifecycle
 
 ## Getting Started
 

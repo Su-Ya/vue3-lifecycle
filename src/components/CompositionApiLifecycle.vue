@@ -31,7 +31,7 @@ const instance = getCurrentInstance();
 
 const printStatus = (hook) => {
   console.log(`----- [Composition API] ${hook} -----`);
-  console.log('  -> 在 setup 裡沒有 this:', this);// 在 <script setup> 中，this 會是 undefined。
+  console.log('  -> 在 <script setup> 裡沒有 this:', this);// 在 <script setup> 中，this 會是 undefined。
   console.log('  -> Vue Instance 透過 getCurrentInstance():', instance);
   console.log('  -> props.msg:', props.msg);
   console.log('  -> DOM Element, rootEl.value:', rootEl.value);

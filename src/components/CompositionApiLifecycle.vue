@@ -14,8 +14,15 @@ defineOptions({
   name: 'CompositionApiLifecycle'
 });
 
+const props = defineProps({
+  msg: {
+    type: String,
+    default: ''
+  }
+});
+
 const count = ref(0);
-const count2 = 111;
+
 // 代替 this.$el 取 DOM 的方式
 const rootEl = ref(null);
 
@@ -26,8 +33,9 @@ const printStatus = (hook) => {
   console.log(`----- [Composition API] ${hook} -----`);
   console.log('  -> 在 setup 裡沒有 this:', this);// 在 <script setup> 中，this 會是 undefined。
   console.log('  -> Vue Instance 透過 getCurrentInstance():', instance);
-  console.log('  -> 類似 this.$el, rootEl.value:', rootEl.value);
-  console.log('  -> count 變數用 ref 建立, count.value:', count.value);
+  console.log('  -> props.msg:', props.msg);
+  console.log('  -> DOM Element, rootEl.value:', rootEl.value);
+  console.log('  -> Reactivity ref(), count.value:', count.value);
 };
 
 // setup()

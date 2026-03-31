@@ -22,8 +22,8 @@
           </label>
         </div>
         <div class="components-container">
-          <CompositionApiLifecycle v-if="showComposition" />
-          <OptionsApiLifecycle v-if="showOptions" />
+          <CompositionApiLifecycle v-if="showComposition" :msg="'1, hi'" />
+          <OptionsApiLifecycle v-if="showOptions" :msg="'2, hollo'" />
         </div>
         <!-- 全域 Console 攔截顯示區塊 -->
         <div class="global-console">
@@ -51,7 +51,7 @@ import CompositionApiLifecycle from './components/CompositionApiLifecycle.vue';
 import OptionsApiLifecycle from './components/OptionsApiLifecycle.vue';
 
 const showComposition = ref(true);
-const showOptions = ref(true);
+const showOptions = ref(false);
 
 // === 全域 Console 攔截器 (攔截 console.log 並轉繪至畫面) ===
 const consoleLogs = ref([]);

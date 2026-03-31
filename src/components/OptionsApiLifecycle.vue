@@ -9,27 +9,35 @@
 <script>
 export default {
   name: 'OptionsApiLifecycle',
+  props: {
+    msg: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return { count: 0 }
   },
   beforeCreate() {
     console.log(`----- [Options API] beforeCreate -----`);
     console.log('  -> this:', this);         // 實體已產生，但只有部分 Vue 核心屬性
-    console.log('  -> this.$el:', this.$el); // null
-    console.log('  -> this.$data:', this.$data); // {}
+    console.log('  -> props.msg:', this.msg);
+    console.log('  -> DOM Element, this.$el:', this.$el); // null
+    console.log('  -> Reactivity, this.$data:', this.$data); // {}
   },
   created() {
     console.log(`----- [Options API] created -----`);
-    console.log('  -> this.$el:', this.$el); // null
-    console.log('  -> this.$data:', this.$data); // {count: 0}
+    console.log('  -> props.msg:', this.msg);
+    console.log('  -> DOM Element, this.$el:', this.$el); // null
+    console.log('  -> Reactivity, this.$data:', this.$data); // {count: 0}
   },
   beforeMount() {
     console.log(`----- [Options API] beforeMount -----`);
-    console.log('  -> this.$el:', this.$el); // null
+    console.log('  -> DOM Element, this.$el:', this.$el); // null
   },
   mounted() {
     console.log(`----- [Options API] mounted -----`);
-    console.log('  -> this.$el:', this.$el); // <div class="lifecycle-box options">...</div>
+    console.log('  -> DOM Element, this.$el:', this.$el); // <div class="lifecycle-box options">...</div>
   },
   beforeUpdate() {
     console.log(`----- [Options API] beforeUpdate -----`);

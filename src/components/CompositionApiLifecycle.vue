@@ -23,7 +23,7 @@ const props = defineProps({
 
 const count = ref(0);
 
-// 代替 this.$el 取 DOM 的方式
+// 代替 this.$el 或 this.$refs.{ref_name} 取 DOM 的方式
 const rootEl = ref(null);
 
 // 如果真的需要取得當前 Vue instance (通常不建議，保留給進階 plugin 開發)
@@ -50,19 +50,19 @@ onMounted(() => {
 });
 
 onBeforeUpdate(() => {
-  console.log(`----- [Composition API] onBeforeUpdate -----`);
+  printStatus('onBeforeUpdate');
 });
 
 onUpdated(() => {
-  console.log(`----- [Composition API] onUpdated -----`);
+  printStatus('onUpdated');
 });
 
 onBeforeUnmount(() => {
-  console.log(`----- [Composition API] onBeforeUnmount -----`);
+  printStatus('onBeforeUnmount');
 });
 
 onUnmounted(() => {
-  console.log(`----- [Composition API] onUnmounted -----`);
+  printStatus('onUnmounted');
 });
 </script>
 

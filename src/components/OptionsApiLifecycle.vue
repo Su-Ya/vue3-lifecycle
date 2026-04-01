@@ -23,7 +23,7 @@ export default {
       console.log(`----- [Options API] ${hook} -----`);
       console.log('  -> this:', this);
       console.log('  -> props.msg:', this.msg);
-      console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl);
+      console.log('  -> DOM, this.$refs.rootEl:', this.$refs.rootEl);
       console.log('  -> Reactivity, this.$data:', this.$data);
     }
   },
@@ -32,24 +32,24 @@ export default {
     console.log('  -> this:', this);         // 實體已產生，但只有部分 Vue 核心屬性
     console.log('  -> props.msg:', this.msg);
     // console.log('  -> DOM Element, this.$el:', this.$el); // null
-    console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
+    console.log('  -> DOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
     console.log('  -> Reactivity, this.$data:', this.$data); // {}
   },
   created() {
     this.printStatus('created');
     // console.log('  -> DOM Element, this.$el:', this.$el); // null
-    // console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
+    // console.log('  -> DOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
     // console.log('  -> Reactivity, this.$data:', this.$data); // {count: 0}
   },
   beforeMount() {
     this.printStatus('beforeMount');
     // console.log('  -> DOM Element, this.$el:', this.$el); // null
-    // console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
+    // console.log('  -> DOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
   },
   mounted() {
     this.printStatus('mounted');
     // console.log('  -> DOM Element, this.$el:', this.$el); // <div class="lifecycle-box options">...</div>
-    // console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // <div class="lifecycle-box options">...</div>
+    // console.log('  -> DOM, this.$refs.rootEl:', this.$refs.rootEl); // <div class="lifecycle-box options">...</div>
   },
   beforeUpdate() {
     this.printStatus('beforeUpdate');

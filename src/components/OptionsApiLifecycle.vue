@@ -1,5 +1,5 @@
 <template>
-  <div class="lifecycle-box options">
+  <div class="lifecycle-box options" ref="rootEl">
     <h2>Options API </h2>
     <p>Counter: {{ count }}</p>
     <button @click="count++">+1</button>
@@ -18,38 +18,50 @@ export default {
   data() {
     return { count: 0 }
   },
+  methods: {
+    printStatus(hook) {
+      console.log(`----- [Options API] ${hook} -----`);
+      console.log('  -> this:', this);
+      console.log('  -> props.msg:', this.msg);
+      console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl);
+      console.log('  -> Reactivity, this.$data:', this.$data);
+    }
+  },
   beforeCreate() {
     console.log(`----- [Options API] beforeCreate -----`);
     console.log('  -> this:', this);         // 實體已產生，但只有部分 Vue 核心屬性
     console.log('  -> props.msg:', this.msg);
-    console.log('  -> DOM Element, this.$el:', this.$el); // null
+    // console.log('  -> DOM Element, this.$el:', this.$el); // null
+    console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
     console.log('  -> Reactivity, this.$data:', this.$data); // {}
   },
   created() {
-    console.log(`----- [Options API] created -----`);
-    console.log('  -> props.msg:', this.msg);
-    console.log('  -> DOM Element, this.$el:', this.$el); // null
-    console.log('  -> Reactivity, this.$data:', this.$data); // {count: 0}
+    this.printStatus('created');
+    // console.log('  -> DOM Element, this.$el:', this.$el); // null
+    // console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
+    // console.log('  -> Reactivity, this.$data:', this.$data); // {count: 0}
   },
   beforeMount() {
-    console.log(`----- [Options API] beforeMount -----`);
-    console.log('  -> DOM Element, this.$el:', this.$el); // null
+    this.printStatus('beforeMount');
+    // console.log('  -> DOM Element, this.$el:', this.$el); // null
+    // console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // undefined
   },
   mounted() {
-    console.log(`----- [Options API] mounted -----`);
-    console.log('  -> DOM Element, this.$el:', this.$el); // <div class="lifecycle-box options">...</div>
+    this.printStatus('mounted');
+    // console.log('  -> DOM Element, this.$el:', this.$el); // <div class="lifecycle-box options">...</div>
+    // console.log('  -> VDOM, this.$refs.rootEl:', this.$refs.rootEl); // <div class="lifecycle-box options">...</div>
   },
   beforeUpdate() {
-    console.log(`----- [Options API] beforeUpdate -----`);
+    this.printStatus('beforeUpdate');
   },
   updated() {
-    console.log(`----- [Options API] updated -----`);
+    this.printStatus('updated');
   },
   beforeUnmount() {
-    console.log(`----- [Options API] beforeUnmount -----`);
+    this.printStatus('beforeUnmount');
   },
   unmounted() {
-    console.log(`----- [Options API] unmounted -----`);
+    this.printStatus('unmounted');
   }
 }
 </script>
